@@ -97,6 +97,9 @@ function reducer(state, { type, payload }) {
         currentOperand: evaluate(state)
       }
 
+    default:
+      return state
+
 
   }
 }
@@ -113,12 +116,16 @@ function evaluate({ currentOperand, previousOperand, operation }) {
     case "-":
       computation = prev - current
       break
-    case "/":
+    case "÷":
       computation = prev / current
       break
     case "*":
       computation = prev * current
       break
+
+    default:
+      computation = ""
+
   }
 
   return computation.toString()
@@ -138,7 +145,7 @@ function App() {
         </div>
         <button className="col-span-2" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>AC</button>
         <button onClick={() => dispatch({ type: ACTIONS.DELETE })}>DEL</button>
-        <button>/</button>
+        <OperationButtons operation="÷" dispatch={dispatch} />
         <DigitButtons digit="1" dispatch={dispatch} />
         <DigitButtons digit="2" dispatch={dispatch} />
         <DigitButtons digit="3" dispatch={dispatch} />
