@@ -139,9 +139,9 @@ function App() {
   return (
     <>
       <div className="grid grid-cols-[repeat(4,6rem)] grid-rows-[minmax(7rem,auto)repeat(5,6rem)] justify-center mt-3">
-        <div className="output col-span-full bg-gray-900 flex flex-col items-end justify-around">
+        <div className="output col-span-full bg-gray-900 flex flex-col items-end justify-around break-all">
           <div className="previousOperand text-white">{previousOperand}{operation}</div>
-          <div className="currentOperand text-white">{currentOperand}</div>
+          <div className="currentOperand text-white text-5xl">{currentOperand}</div>
         </div>
         <button className="col-span-2" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>AC</button>
         <button onClick={() => dispatch({ type: ACTIONS.DELETE })}>DEL</button>
